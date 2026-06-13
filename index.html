@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abanob Thabet - Data Engineer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -184,23 +184,23 @@
         }
 
         .hero h1 {
-            font-size: clamp(4rem, 12vw, 9rem);
+            font-size: clamp(4rem, 12vw, 9.5rem);
             font-weight: 900;
-            line-height: 0.85;
+            line-height: 0.8;
             margin-bottom: 1.5rem;
-            letter-spacing: -4px;
+            letter-spacing: -6px;
             background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--secondary) 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradient-flow 5s linear infinite;
+            animation: gradient-flow 8s ease infinite;
         }
 
         @keyframes gradient-flow {
-            0% { background-position: 0% center; }
-            50% { background-position: 100% center; }
-            100% { background-position: 0% center; }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .hero .subtitle {
@@ -211,61 +211,6 @@
             letter-spacing: 4px;
             text-transform: uppercase;
         }
-
-        .scroll-indicator {
-            text-decoration: none;
-            background-color: #0088ff;
-            height: 30px;
-
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            text-orientation: mixed;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            letter-spacing: 2px;
-            animation: bounce 2s infinite;
-        }
-        /* Pulsing Neon Button */
-.neon-btn-2 {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #ffffff;
-    height: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 50px;
-    animation: pulse-border 2s infinite;
-}
-
-.neon-btn-2:hover {
-    color: #000;
-    background: #ffffff;
-    animation: none;
-    box-shadow:
-        0 0 25px rgba(255, 255, 255, 0.8),
-        0 0 35px rgba(255, 255, 255, 0.6);
-}
-
-@keyframes pulse-border {
-    0%, 100% {
-        box-shadow:
-            0 0 15px rgba(255, 255, 255, 0.4),
-            inset 0 0 15px rgba(255, 255, 255, 0.1);
-    }
-    50% {
-        box-shadow:
-            0 0 25px rgba(255, 255, 255, 0.8),
-            inset 0 0 25px rgba(0, 136, 255, 0.2);
-    }
-}
 
         /* Sections */
         section {
@@ -393,27 +338,29 @@
             box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
         }
 
-        /* Experience Timeline */
-        .experience-timeline {
-            position: relative;
-            margin-top: 4rem;
-        }
-
-        .experience-item {
+        /* Common Card Style */
+        .glass-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 2.5rem;
-            margin-bottom: 2rem;
-            position: relative;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        .experience-item:hover {
+        .glass-card:hover {
             border-color: var(--primary);
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
         .experience-item h3 {
@@ -447,11 +394,12 @@
         }
 
         .experience-item li::before {
-            content: '→';
+            content: '▹';
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1.4;
         }
 
         /* Projects Section */
@@ -460,26 +408,6 @@
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 2.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(10px);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: rgba(0, 255, 136, 0.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .project-card h3 {
@@ -512,6 +440,54 @@
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* Certificate Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .certificate-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .certificate-card h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .certificate-card h3 a:hover {
+            color: var(--primary);
+        }
+
+        .certificate-card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: gap 0.3s ease;
+        }
+
+        .cert-link:hover {
+            gap: 0.8rem;
         }
 
         /* Contact Section */
@@ -580,26 +556,9 @@
         }
 
         /* Animations */
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%); }
-            100% { transform: translateX(100%) translateY(100%); }
         }
 
         /* Scroll Animations */
@@ -633,11 +592,7 @@
                 gap: 3rem;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-methods {
+            .projects-grid, .certificates-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -647,9 +602,6 @@
 
             .cursor {
                 display: none;
-            }
-            .about-visual{
-
             }
         }
     </style>
@@ -669,6 +621,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -683,7 +636,6 @@
                 <h1>Abanob Thabet</h1>
                 <p class="subtitle">Data Engineer & Computer Science Student</p>
             </div>
-      <!-- Add this wherever you want the button in your HTML -->
 <a href="https://drive.google.com/file/d/1dgS8BeEMF5wcBqD_JyLh4R7KzF7U9JSI/view?usp=drive_link" target="_blank" class="cv-btn" id="cvBtn">
     <div class="download-icon">
         <svg viewBox="0 0 24 24">
@@ -694,8 +646,6 @@
     <span>Download CV</span>
     <div class="progress-bar"></div>
 </a>
-
-<!-- Success message container -->
 <div class="success-msg" id="successMsg">CV Downloaded!</div>
         </section>
 
@@ -732,7 +682,7 @@
         <section id="experience" class="fade-in">
             <h2 class="section-title">Experience</h2>
             <div class="experience-timeline">
-                <div class="experience-item">
+                <div class="experience-item glass-card">
                     <h3>Digital Egypt Pioneers Initiative (DEPI)</h3>
                     <div class="experience-date">May 2025</div>
                     <ul>
@@ -745,11 +695,33 @@
             </div>
         </section>
 
+        <!-- Certificates Section -->
+        <section id="certificates" class="fade-in">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card glass-card">
+                    <div class="mb-3"><i class="bi bi-award-fill fs-2" style="color: var(--primary);"></i></div>
+                    <h3><a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/5e22b3db7f6d1bacf1d97af4e5121aa52fc95d8a" target="_blank">Datacamp – Introduction to SQL</a></h3>
+                    <div class="experience-date">May 2025</div>
+                    <p>Earned a certificate in Introduction to SQL, learning how to query databases, filter and sort results, use joins, and manage data effectively. This course strengthened my ability to work with relational databases and prepare data for analysis.</p>
+                    <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/5e22b3db7f6d1bacf1d97af4e5121aa52fc95d8a" target="_blank" class="cert-link">Certificate Link <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+
+                <div class="certificate-card glass-card">
+                    <div class="mb-3"><i class="bi bi-award-fill fs-2" style="color: var(--primary);"></i></div>
+                    <h3><a href="https://drive.google.com/file/d/1sqVy4Lf9eozu09Md0_mWBrpw7F-0LObO/view?usp=sharing" target="_blank">Python Programming – MASA Training</a></h3>
+                    <div class="experience-date">September 2024</div>
+                    <p>Completed a practical training course in Python programming, covering core concepts, problem-solving, and applied exercises. The course included hands-on sessions designed to build strong coding skills and prepare me for real-world applications.</p>
+                    <a href="https://drive.google.com/file/d/1sqVy4Lf9eozu09Md0_mWBrpw7F-0LObO/view?usp=sharing" target="_blank" class="cert-link">Certificate Link <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section id="projects" class="fade-in">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card glass-card">
                     <div class="mb-3"><i class="bi bi-code-slash fs-2" style="color: var(--primary);"></i></div>
                     <h3>Abstract Shapes Framework</h3>
                     <p>Provides a framework for calculating the area and perimeter of various geometric shapes. Demonstrates the use of abstract classes to enforce a standard structure for all shapes, allowing for easy extension in the future with new geometric forms.</p>
@@ -759,7 +731,7 @@
                         <span class="tech-tag">Abstract Classes</span>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glass-card">
                     <div class="mb-3"><i class="bi bi-people-fill fs-2" style="color: var(--primary);"></i></div>
                     <h3>Employee Salary System</h3>
                     <p>Updates employee salaries based on increment data provided in tuples. The system ensures that only existing employees in the salary dictionary are updated, demonstrating robust conditional statements for data validation.</p>
@@ -769,7 +741,7 @@
                         <span class="tech-tag">Validation</span>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glass-card">
                     <div class="mb-3"><i class="bi bi-graph-up-arrow fs-2" style="color: var(--primary);"></i></div>
                     <h3>Product Price Analysis</h3>
                     <p>Analyzes products represented as tuples containing names, prices, and quantities. Extracts product names that exceed specified price thresholds using advanced list slicing and conditional statements for efficient data filtering.</p>
@@ -779,7 +751,7 @@
                         <span class="tech-tag">List Processing</span>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glass-card">
                     <div class="mb-3"><i class="bi bi-person-rolodex fs-2" style="color: var(--primary);"></i></div>
                     <h3>Java Contact App</h3>
                     <p>Simple yet comprehensive contact application with Java GUI. Features full CRUD functionality allowing users to add, delete, and edit contacts including names, phone numbers, and email addresses with an intuitive interface.</p>
@@ -789,7 +761,7 @@
                         <span class="tech-tag">GUI</span>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glass-card">
                     <div class="mb-3"><i class="bi bi-book-half fs-2" style="color: var(--primary);"></i></div>
                     <h3>Library Management System</h3>
                     <p>Allows users to manage a collection of books with functionality to add new books and list existing inventory. Designed to make library inventory tracking easier and more efficient for library management.</p>
@@ -799,7 +771,7 @@
                         <span class="tech-tag">CRUD Operations</span>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glass-card">
                     <div class="mb-3"><i class="bi bi-calculator fs-2" style="color: var(--primary);"></i></div>
                     <h3>Smart Calculator</h3>
                     <p>Simple yet effective tool performing basic arithmetic operations including addition, subtraction, multiplication, and division. Features robust error handling for edge cases like division by zero.</p>
@@ -809,7 +781,7 @@
                         <span class="tech-tag">Math Operations</span>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glass-card">
                     <div class="mb-3"><i class="bi bi-ship fs-2" style="color: var(--primary);"></i></div>
                     <h3>Titanic Dataset Analysis</h3>
                     <p>Comprehensive analysis of the Titanic dataset exploring passenger survival rates, age distributions, and family sizes. Provides valuable insights into factors affecting survival during the historic disaster using advanced data analysis techniques.</p>
@@ -864,7 +836,7 @@
     <script>
         // Custom Cursor
         const cursor = document.querySelector('.cursor');
-        const hoverElements = document.querySelectorAll('a, .project-card, .skill-tag, .contact-item');
+        const hoverElements = document.querySelectorAll('a, .glass-card, .skill-tag, .contact-item');
 
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';

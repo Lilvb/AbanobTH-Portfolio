@@ -5,26 +5,21 @@ function initCVDownload() {
     if (!btn || !msg) return;
 
     btn.addEventListener('click', function(e) {
+        // We don't prevent default anymore to avoid popup blocker issues
+        // and to allow the browser to handle the link naturally.
+
         if (this.classList.contains('downloading')) {
-            e.preventDefault();
             return;
         }
 
-        e.preventDefault();
-        const url = this.getAttribute('href');
-
-        // Start download animation
+        // Start visual feedback animation
         this.classList.add('downloading');
 
-        // Simulate download/preparation
+        // Success message after the "preparation" time
         setTimeout(() => {
             this.classList.remove('downloading');
             msg.classList.add('show');
 
-            // Open the link
-            window.open(url, '_blank');
-
-            // Hide success message
             setTimeout(() => {
                 msg.classList.remove('show');
             }, 3000);
